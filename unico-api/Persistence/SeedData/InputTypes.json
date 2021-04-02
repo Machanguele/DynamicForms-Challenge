@@ -1,0 +1,30 @@
+﻿[
+  {
+    "Type": "Text",
+    "Description": "Resposta Curta"
+  },
+  {
+    "Type": "TextArea",
+    "Description": "Resposta Longa"
+  },
+  {
+    "Type": "ComboBox",
+    "Description": "Escolha Múltipla"
+  },
+  {
+    "Type": "CheckBox",
+    "Description": "Caixa de Verificação"
+  },
+  {
+    "Type": "Select",
+    "Description": "Selecção Única"
+  },
+  {
+    "Type": "Date",
+    "Description": "Data"
+  },
+  {
+    "Type": "Time",
+    "Description": "Hora"
+  }
+]

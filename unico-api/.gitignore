@@ -1,0 +1,10 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+/.idea/.idea.APM/.idea/.name
+
+/API/Uploads/
+/API/bin/
+/API/obj/
