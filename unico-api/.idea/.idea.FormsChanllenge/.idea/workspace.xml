@@ -13,22 +13,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7459448-a2ce-4c65-8ecc-de06a3450b56" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/API/API.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Common/MimeTypeMap.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Controllers/BaseController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Controllers/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Extensions/ApplicationServicesExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Extensions/ClaimsPrincipalExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Extensions/IdentityServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Extensions/SwaggerServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Extensions/UserManagerExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Middleware/ErrorHandlingMiddleware.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Startup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/appsettings.json" afterDir="false" />
-    </list>
+    <list default="true" id="d7459448-a2ce-4c65-8ecc-de06a3450b56" name="Default Changelist" comment="Added: appsettings.Development for connection string" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +26,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -97,8 +83,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1617358110928</updated>
-      <workItem from="1617358128909" duration="1097000" />
+      <workItem from="1617358128909" duration="1516000" />
     </task>
+    <task id="LOCAL-00001" summary="Added: API Layer">
+      <created>1617359347492</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617359347493</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added: First Migration">
+      <created>1617359515453</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1617359515453</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added: appsettings.Development for connection string">
+      <created>1617359589625</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617359589625</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,11 +127,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Added: API Layer" />
+    <MESSAGE value="Added: First Migration" />
+    <MESSAGE value="Added: appsettings.Development for connection string" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added: appsettings.Development for connection string" />
   </component>
   <component name="WindowStateProjectService">
     <state x="549" y="160" key="RollbackChangesDialog" timestamp="1617358919404">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
     <state x="549" y="160" key="RollbackChangesDialog/0.0.1600.900@0.0.1600.900" timestamp="1617358919404" />
+    <state x="392" y="183" key="Vcs.Push.Dialog.v2" timestamp="1617359485573">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state x="392" y="183" key="Vcs.Push.Dialog.v2/0.0.1600.900@0.0.1600.900" timestamp="1617359485573" />
   </component>
 </project>
