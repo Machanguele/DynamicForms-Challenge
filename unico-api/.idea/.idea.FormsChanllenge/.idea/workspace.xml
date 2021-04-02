@@ -13,7 +13,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7459448-a2ce-4c65-8ecc-de06a3450b56" name="Default Changelist" comment="Added: appsettings.Development for connection string" />
+    <list default="true" id="d7459448-a2ce-4c65-8ecc-de06a3450b56" name="Default Changelist" comment="Added: worskspace">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FormsChanllenge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FormsChanllenge/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +43,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -83,7 +92,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1617358110928</updated>
-      <workItem from="1617358128909" duration="1516000" />
+      <workItem from="1617358128909" duration="1965000" />
     </task>
     <task id="LOCAL-00001" summary="Added: API Layer">
       <created>1617359347492</created>
@@ -106,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617359589625</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added: worskspace">
+      <created>1617359778378</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1617359778378</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,16 +146,17 @@
     <MESSAGE value="Added: API Layer" />
     <MESSAGE value="Added: First Migration" />
     <MESSAGE value="Added: appsettings.Development for connection string" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added: appsettings.Development for connection string" />
+    <MESSAGE value="Added: worskspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added: worskspace" />
   </component>
   <component name="WindowStateProjectService">
     <state x="549" y="160" key="RollbackChangesDialog" timestamp="1617358919404">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
     <state x="549" y="160" key="RollbackChangesDialog/0.0.1600.900@0.0.1600.900" timestamp="1617358919404" />
-    <state x="392" y="183" key="Vcs.Push.Dialog.v2" timestamp="1617359485573">
+    <state x="392" y="183" key="Vcs.Push.Dialog.v2" timestamp="1617359830177">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
-    <state x="392" y="183" key="Vcs.Push.Dialog.v2/0.0.1600.900@0.0.1600.900" timestamp="1617359485573" />
+    <state x="392" y="183" key="Vcs.Push.Dialog.v2/0.0.1600.900@0.0.1600.900" timestamp="1617359830177" />
   </component>
 </project>

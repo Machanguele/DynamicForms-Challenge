@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Machanguele\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Machanguele\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_FormsChallenge.62997059.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Machanguele\AppData\Roaming\JetBrains\Rider2020.2\scratches" t="IncludeRecursive" />
+    <e p="E:\DevSpace\Unico\DynamicForms\unico-api" t="IncludeFlat">
+      <e p="API" t="IncludeRecursive">
+        <e p="API.csproj" t="IncludeRecursive" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Common" t="Include">
+          <e p="MimeTypeMap.cs" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="BaseController.cs" t="Include" />
+          <e p="tsconfig.json" t="Include" />
+        </e>
+        <e p="Extensions" t="Include">
+          <e p="ApplicationServicesExtensions.cs" t="Include" />
+          <e p="ClaimsPrincipalExtensions.cs" t="Include" />
+          <e p="IdentityServiceExtensions.cs" t="Include" />
+          <e p="SwaggerServiceExtensions.cs" t="Include" />
+          <e p="UserManagerExtensions.cs" t="Include" />
+        </e>
+        <e p="Middleware" t="Include">
+          <e p="ErrorHandlingMiddleware.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="API.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="Application" t="IncludeRecursive">
+        <e p="Application.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Dtos" t="Include">
+          <e p="AnswerOptionsDto.cs" t="Include" />
+          <e p="OptionDto.cs" t="Include" />
+        </e>
+        <e p="Errors" t="Include">
+          <e p="ApiException.cs" t="Include" />
+          <e p="ApiResponse.cs" t="Include" />
+          <e p="ApiValidationErrorResponse.cs" t="Include" />
+          <e p="RestException.cs" t="Include" />
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="ICustomMapper.cs" t="Include" />
+          <e p="IEmailSender.cs" t="Include" />
+          <e p="IRandomStringGenerator.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Application.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Questions" t="Include">
+          <e p="CreateQuestion.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Domain" t="IncludeRecursive">
+        <e p="AppUser.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Domain.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Domain.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Question.cs" t="Include" />
+      </e>
+      <e p="FormsChallenge.sln" t="IncludeFlat" />
+      <e p="Infrastructure" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Infrastructure.csproj" t="IncludeRecursive" />
+        <e p="Mailer" t="Include">
+          <e p="EmailService.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Infrastructure.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Persistence" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DataContext.cs" t="Include" />
+        <e p="DataContextSeed.cs" t="Include" />
+        <e p="Migrations" t="Include">
+          <e p="20210402093457_InicialDataStructure.cs" t="Include" />
+          <e p="20210402093457_InicialDataStructure.Designer.cs" t="Include" />
+          <e p="DataContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Persistence.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Persistence.csproj" t="IncludeRecursive" />
+        <e p="SeedData" t="Include">
+          <e p="Categories.json" t="Include" />
+          <e p="InputTypes.json" t="Include" />
+        </e>
+      </e>
+    </e>
+  </component>
+</project>
