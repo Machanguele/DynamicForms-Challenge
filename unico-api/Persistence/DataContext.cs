@@ -26,6 +26,12 @@ namespace Persistence
         }
 
         public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+        public DbSet<Image> Images { get; set; }
+        public DbSet<InputType> InputTypes { get; set; }
+        public DbSet<Inquiry> Inquiries { get; set; }
+        public DbSet<QuestionCategory> QuestionCategories { get; set; }
+        public DbSet<QuestionOption> QuestionOptions { get; set; }
 
     }
 }
