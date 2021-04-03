@@ -1,7 +1,9 @@
 using API.Extensions;
 using API.Middleware;
+using Application.Inquiries;
 using Application.Questions;
 using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -44,17 +46,17 @@ namespace API
 
             
             
-            //services.AddMediatR(typeof(CreateUser.CreateUserCommand).Assembly);
+            services.AddMediatR(typeof(CreateInquiry.CreateInquiryCommand).Assembly);
             
             //services.AddControllers();
             services.AddControllers()
                 
-                .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<CreateQuestion>())
+                .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<CreateInquiry>())
                 .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             
-            // services.AddAutoMapper(typeof(MappingProfiles));
+            //services.AddAutoMapper(typeof(MappingProfiles));
            
 
         }
@@ -64,7 +66,7 @@ namespace API
         {
             app.UseMiddleware<ErrorHandlingMiddleware>();
 
-            // app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
