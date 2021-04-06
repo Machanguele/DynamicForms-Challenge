@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Application.Inquiries;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,12 @@ namespace API.Controllers
         {
             return await Mediator.Send(command);
         }
+        
+        [HttpGet]
+        public async Task<ActionResult<List<Inquiry>>> GetInquiries()
+        {
+            return await Mediator.Send(new ListInquiries.ListInquiriesQuery());
+        } 
         
     }
 }

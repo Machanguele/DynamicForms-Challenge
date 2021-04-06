@@ -40,7 +40,9 @@ namespace Application.Inquiries
             {
                 var inquiry = new Inquiry
                 {
-                    Description = request.Description
+                    Description = request.Description,
+                    CreationDate = DateTime.Now
+                    
                 };
 
                 _context.Inquiries.Add(inquiry);

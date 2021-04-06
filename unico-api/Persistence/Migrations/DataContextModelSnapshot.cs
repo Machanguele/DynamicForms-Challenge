@@ -164,6 +164,9 @@ namespace Persistence.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Submitted")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("Inquiries");
@@ -389,7 +392,7 @@ namespace Persistence.Migrations
                         .HasForeignKey("InputTypeId");
 
                     b.HasOne("Domain.Inquiry", "Inquiry")
-                        .WithMany("Question")
+                        .WithMany("Questions")
                         .HasForeignKey("InquiryId");
 
                     b.HasOne("Domain.QuestionCategory", "QuestionCategory")

@@ -8,6 +8,8 @@ namespace Domain
         public int Id { get; set; }
         public string Description { get; set; }
         public DateTime CreationDate { get; set; }
-        public virtual ICollection<Question> Question { get; set; }
+        public bool Submitted { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
+        
     }
 }

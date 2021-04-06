@@ -15,7 +15,29 @@ namespace Persistence
         {
             try
             {
-             
+              if (!context.QuestionCategories.Any())
+              {
+                  var questionCategoriesData = File.ReadAllText("../Persistence/SeedData/questionCategories.json");
+                  var questionCategories = JsonSerializer.Deserialize<List<QuestionCategory>>(questionCategoriesData);
+                  foreach (var item in questionCategories)
+                  {
+                      context.QuestionCategories.Add(item);
+                  }
+                  await context.SaveChangesAsync();
+              }
+                
+              if (!context.InputTypes.Any())
+              {
+                  var inputTypesData = File.ReadAllText("../Persistence/SeedData/inputTypes.json");
+                  var inputTypes = JsonSerializer.Deserialize<List<InputType>>(inputTypesData);
+                  foreach (var item in inputTypes)
+                  {
+                      context.InputTypes.Add(item);
+                  }
+                  await context.SaveChangesAsync();
+              }
+              
+               
             }
             catch (Exception e)
             {
