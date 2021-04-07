@@ -1,6 +1,6 @@
 ﻿﻿﻿namespace Application.Dtos
 {
-    public class OptionDto
+    public class ptionDto
     {
         public int Id { get; set; }
         public string Description { get; set; }

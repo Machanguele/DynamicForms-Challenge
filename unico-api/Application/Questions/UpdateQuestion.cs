@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Dtos;
 using Application.Errors;
+using Application.Interfaces;
 using Domain;
 using FluentValidation;
 using MediatR;
@@ -15,7 +17,7 @@ namespace Application.Questions
 {
     public class UpdateQuestion
     {
-        public class UpdateQuestionCommand: IRequest<Question>
+        public class UpdateQuestionCommand: IRequest<QuestionsDto>
         {
             public int QuestionId { get; set; }
             public string Title { get; set; }
@@ -28,17 +30,18 @@ namespace Application.Questions
         {
         }
         
-        public class UpdateQuestionCommandHandler: IRequestHandler<UpdateQuestionCommand, Question>
+        public class UpdateQuestionCommandHandler: IRequestHandler<UpdateQuestionCommand, QuestionsDto>
         {
             private readonly DataContext _context;
-            
-            public UpdateQuestionCommandHandler(DataContext context)
+            private readonly IPhotosUrl _photosUrl;
+
+            public UpdateQuestionCommandHandler(DataContext context, IPhotosUrl photosUrl)
             {
                 _context = context;
-                
+                _photosUrl = photosUrl;
             }
             
-            public async Task<Question> Handle(UpdateQuestionCommand request, CancellationToken cancellationToken)
+            public async Task<QuestionsDto> Handle(UpdateQuestionCommand request, CancellationToken cancellationToken)
             {
 
                 var question = await _context.Questions
@@ -76,7 +79,16 @@ namespace Application.Questions
                         }
 
                         transaction.Commit();
-                        return question;
+                        return new QuestionsDto
+                        {
+                            Id = question.Id,
+                            Inquiry = question.Inquiry,
+                            InputType = question.InputType,
+                            QuestionCategory = question.QuestionCategory,
+                            Title = question.Title,
+                            IsRequired = question.IsRequired,
+                            Images = await _photosUrl.GetImagesPath(question.Id) 
+                        };
                     }
                     catch (Exception e)
                     {

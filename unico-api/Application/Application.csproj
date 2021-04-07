@@ -22,5 +22,9 @@
     <ItemGroup>
       <Compile Remove="Class1.cs" />
     </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="QuestionOptions" />
+    </ItemGroup>
 
 </Project>

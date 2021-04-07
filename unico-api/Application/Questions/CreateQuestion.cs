@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Dtos;
 using Application.Errors;
 using Application.Inquiries;
+using Application.Interfaces;
 using Domain;
 using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Persistence;
 using SendGrid.Helpers.Errors.Model;
 
@@ -19,13 +24,14 @@ namespace Application.Questions
     public class CreateQuestion
     {
              
-        public class CreateQuestionCommand : IRequest<Question>
+        public class CreateQuestionCommand : IRequest<QuestionsDto>
         {
             public string Title { get; set; }
             public bool IsRequired { get; set; }
             public int InputTypeId { get; set; }
             public int QuestionCategoryId { get; set; }
             public int InquiryId { get; set; }
+            public IList<IFormFile> Files { get; set; }
             public List<string> QuestionOptions { get; set; }
             
         }
@@ -44,18 +50,42 @@ namespace Application.Questions
             }
         }
         
-        public class Handler : IRequestHandler<CreateQuestion.CreateQuestionCommand, Question>
+        public static string GenerateSecureString(int bytes)
+        {
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                var tokenData = new byte[bytes];
+                rng.GetBytes(tokenData);
+
+                return MakeBase64UrlSafe(Convert.ToBase64String(tokenData));
+            }
+        }
+        
+        public static string MakeBase64UrlSafe(string input)
+        {
+            return input.TrimEnd('=').Replace('+', '-').Replace('/', '_');
+        }
+        
+        public class Handler : IRequestHandler<CreateQuestion.CreateQuestionCommand, QuestionsDto>
         {
             private readonly DataContext _context;
             private readonly IConfiguration _configuration;
+            private readonly IHostEnvironment _environment;
+            private readonly IPhotosUrl _photosUrl;
 
-            public Handler(DataContext context, IConfiguration configuration)
+            public Handler(DataContext context,
+                IConfiguration configuration,
+                IHostEnvironment environment,
+                IPhotosUrl photosUrl
+                )
             {
                 _context = context;
                 _configuration = configuration;
+                _environment = environment;
+                _photosUrl = photosUrl;
             }
             
-            public async Task<Question> Handle(CreateQuestion.CreateQuestionCommand request, CancellationToken cancellationToken)
+            public async Task<QuestionsDto> Handle(CreateQuestion.CreateQuestionCommand request, CancellationToken cancellationToken)
             {
                 var inputType = await _context.InputTypes
                     .FirstOrDefaultAsync(x => x.Id == request.InputTypeId);
@@ -113,9 +143,50 @@ namespace Application.Questions
                                 throw new Exception("Fail to save option");
                             }
                         }
+                        
+                        foreach (var file in request.Files)
+                        {
+                            var uploadDir = _configuration["UploadDir"];
+                            var root = "/";
+                            if (uploadDir[0] != '/') root = _environment.ContentRootPath;
+                            var finalUploadDir = Path.Combine(root, uploadDir);
+                            var ext = Path.GetExtension(file.FileName);
+                            var fileToken = $"{GenerateSecureString(20)}{ext}";
+
+                            if (file.Length > 0)
+                            {
+                                using (var fileStream = new FileStream(Path.Combine(finalUploadDir, fileToken),
+                                    FileMode.Create))
+                                {
+                                    await file.CopyToAsync(fileStream);
+
+                                    var image = new Image
+                                    {
+                                        Name = file.FileName,
+                                        Url = fileToken,
+                                        Question = question
+                                    };
+
+                                    _context.Images.Add(image);
+                                    
+                                    await _context.SaveChangesAsync();
+                                }
+                            }
+                        }
                 
                         transaction.Commit();
-                        return question;
+                        return new QuestionsDto
+                        {
+                            Id = question.Id,
+                            Inquiry = question.Inquiry,
+                            InputType = question.InputType,
+                            QuestionCategory = question.QuestionCategory,
+                            Title = question.Title,
+                            IsRequired = question.IsRequired,
+                            Images = await _photosUrl.GetImagesPath(question.Id) 
+                            
+
+                        };
                     }
                     catch (Exception e)
                     {

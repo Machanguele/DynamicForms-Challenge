@@ -1,5 +1,7 @@
 using System.Linq;
 using Application.Errors;
+using Application.Helpers;
+using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,6 +15,7 @@ namespace API.Extensions
             
             // services.AddScoped<IEmailSender, EmailService>();
             // services.AddScoped<IUserAccessor, UserAccessor>();
+            services.AddScoped<IPhotosUrl, GetImagesPathHelper>();
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
