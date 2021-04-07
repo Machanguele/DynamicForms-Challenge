@@ -22,5 +22,19 @@ namespace API.Controllers
             return await Mediator.Send(new GetQuestionsByInquiry.GetQuestionsByInquiryQuery{InquiryId = inquiryId});
         }
         
+        [HttpGet("{questionId}")]
+        public async Task<ActionResult<Question>> GetQuestionsById(int questionId)
+        {
+            return await Mediator.Send(new GetQuestionById.GetQuestionByIdQuery{QuestionId = questionId});
+        }
+        
+        [HttpPut("{questionId}")]
+        public async Task<ActionResult<Question>> UpdateQuestion(int questionId, UpdateQuestion.UpdateQuestionCommand command)
+        {
+            command.QuestionId = questionId;
+
+            return await Mediator.Send(command);
+        }
+        
     }
 }
