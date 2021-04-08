@@ -3,3 +3,14 @@
     margin: auto;
 
 }
+
+#roundedButton{
+    position: absolute;
+    bottom: 15%;
+    border-radius: 1em;
+    right: 15%;
+    height: 8%;
+
+
+
+}
