@@ -15,6 +15,8 @@
         </e>
         <e p="Controllers" t="Include">
           <e p="BaseController.cs" t="Include" />
+          <e p="InquiriesController.cs" t="Include" />
+          <e p="QuestionsController.cs" t="Include" />
           <e p="tsconfig.json" t="Include" />
         </e>
         <e p="Extensions" t="Include">
@@ -39,13 +41,19 @@
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
+        <e p="Uploads" t="Include">
+          <e p="hb3bFu3irCucWLV95pw8Fwr_bFA.png" t="Include" />
+          <e p="T-w6YRFnRWeSHo6zdwshwqqDTyw.jpg" t="Include" />
+        </e>
       </e>
       <e p="Application" t="IncludeRecursive">
         <e p="Application.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Dtos" t="Include">
           <e p="AnswerOptionsDto.cs" t="Include" />
+          <e p="AuxQuestionDto.cs" t="Include" />
           <e p="OptionDto.cs" t="Include" />
+          <e p="QuestionsDto.cs" t="Include" />
         </e>
         <e p="Errors" t="Include">
           <e p="ApiException.cs" t="Include" />
@@ -53,9 +61,20 @@
           <e p="ApiValidationErrorResponse.cs" t="Include" />
           <e p="RestException.cs" t="Include" />
         </e>
+        <e p="Helpers" t="Include">
+          <e p="GetImagesPathHelper.cs" t="Include" />
+        </e>
+        <e p="Inquiries" t="Include">
+          <e p="CreateInquiry.cs" t="Include" />
+          <e p="GetInquiryById.cs" t="Include" />
+          <e p="ListInquiries.cs" t="Include" />
+          <e p="SubmitInquiry.cs" t="Include" />
+          <e p="UpdateInquiry.cs" t="Include" />
+        </e>
         <e p="Interfaces" t="Include">
           <e p="ICustomMapper.cs" t="Include" />
           <e p="IEmailSender.cs" t="Include" />
+          <e p="IPhotosURL.cs" t="Include" />
           <e p="IRandomStringGenerator.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -65,14 +84,22 @@
             </e>
           </e>
         </e>
+        <e p="QuestionOptions" t="Include" />
         <e p="Questions" t="Include">
           <e p="CreateQuestion.cs" t="Include" />
+          <e p="GetQuestionById.cs" t="Include" />
+          <e p="GetQuestionsByInquiry.cs" t="Include" />
+          <e p="UpdateQuestion.cs" t="Include" />
         </e>
       </e>
       <e p="Domain" t="IncludeRecursive">
+        <e p="Answer.cs" t="Include" />
         <e p="AppUser.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Domain.csproj" t="IncludeRecursive" />
+        <e p="Image.cs" t="Include" />
+        <e p="InputType.cs" t="Include" />
+        <e p="Inquiry.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -81,6 +108,8 @@
           </e>
         </e>
         <e p="Question.cs" t="Include" />
+        <e p="QuestionCategory.cs" t="Include" />
+        <e p="QuestionOption.cs" t="Include" />
       </e>
       <e p="FormsChallenge.sln" t="IncludeFlat" />
       <e p="Infrastructure" t="IncludeRecursive">
@@ -105,6 +134,10 @@
         <e p="Migrations" t="Include">
           <e p="20210402093457_InicialDataStructure.cs" t="Include" />
           <e p="20210402093457_InicialDataStructure.Designer.cs" t="Include" />
+          <e p="20210402154651_Models.cs" t="Include" />
+          <e p="20210402154651_Models.Designer.cs" t="Include" />
+          <e p="20210406050715_AddSubmitted.cs" t="Include" />
+          <e p="20210406050715_AddSubmitted.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -116,8 +149,8 @@
         </e>
         <e p="Persistence.csproj" t="IncludeRecursive" />
         <e p="SeedData" t="Include">
-          <e p="Categories.json" t="Include" />
           <e p="InputTypes.json" t="Include" />
+          <e p="questionCategories.json" t="Include" />
         </e>
       </e>
     </e>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4cdce9a5-83c9-4fb3-887d-3263b4cc3e89" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/unico-web.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/InquiryCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/business.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Inquiries/Inquiries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/answers/Answer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/questions/Questions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/Header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/inquiry.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../unico-api/.idea/.idea.FormsChallenge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../unico-api/.idea/.idea.FormsChallenge/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../unico-api/.idea/.idea.FormsChallenge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../unico-api/.idea/.idea.FormsChallenge/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1qriDXu7SoNl9euxGSsYDRrwa7W" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/images" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\DevSpace\Unico\DynamicForms\unico-web\src\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\DevSpace\Unico\DynamicForms\unico-web\src\components" />
+      <recent name="E:\DevSpace\Unico\DynamicForms\unico-web\src\pages\Inquiries" />
+      <recent name="E:\DevSpace\Unico\DynamicForms\unico-web\src\pages\questions" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4cdce9a5-83c9-4fb3-887d-3263b4cc3e89" name="Default Changelist" comment="" />
+      <created>1617844014533</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617844014533</updated>
+      <workItem from="1617844023200" duration="8483000" />
+      <workItem from="1617853119146" duration="1464000" />
+      <workItem from="1617861183507" duration="4885000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="418" y="93" key="#Inspections" timestamp="1617865496981">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state x="418" y="93" key="#Inspections/0.0.1600.900@0.0.1600.900" timestamp="1617865496981" />
+    <state width="1567" height="215" key="GridCell.Tab.0.bottom" timestamp="1617854597350">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state width="1567" height="215" key="GridCell.Tab.0.bottom/0.0.1600.900@0.0.1600.900" timestamp="1617854597350" />
+    <state width="1567" height="215" key="GridCell.Tab.0.center" timestamp="1617854597350">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state width="1567" height="215" key="GridCell.Tab.0.center/0.0.1600.900@0.0.1600.900" timestamp="1617854597350" />
+    <state width="1567" height="215" key="GridCell.Tab.0.left" timestamp="1617854597350">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state width="1567" height="215" key="GridCell.Tab.0.left/0.0.1600.900@0.0.1600.900" timestamp="1617854597350" />
+    <state width="1567" height="215" key="GridCell.Tab.0.right" timestamp="1617854597350">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state width="1567" height="215" key="GridCell.Tab.0.right/0.0.1600.900@0.0.1600.900" timestamp="1617854597350" />
+  </component>
+</project>
