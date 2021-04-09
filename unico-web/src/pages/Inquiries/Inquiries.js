@@ -54,6 +54,7 @@ export const Inquiries = () => {
     }
 
     return (
+
         <div id={'container'} className="row space-between justify-content-center overflow-auto">
             {
                 (inquiries.length >0 ) ?
