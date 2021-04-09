@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Dtos;
 using Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -10,12 +11,12 @@ namespace Application.Inquiries
 {
     public class ListInquiries
     {
-        public class ListInquiriesQuery : IRequest<List<Inquiry>>
+        public class ListInquiriesQuery : IRequest<List<InquiryDto>>
         {
             
         }
 
-        public class Handler : IRequestHandler<ListInquiriesQuery, List<Inquiry>>
+        public class Handler : IRequestHandler<ListInquiriesQuery, List<InquiryDto>>
         {
             private readonly DataContext _context;
 
@@ -25,11 +26,25 @@ namespace Application.Inquiries
             }
             
             
-            public async Task<List<Inquiry>> Handle(ListInquiriesQuery request, CancellationToken cancellationToken)
+            public async Task<List<InquiryDto>> Handle(ListInquiriesQuery request, CancellationToken cancellationToken)
             {
-                return await _context.Inquiries
+                var inquiries =  await _context.Inquiries
                     .Include(x=>x.Questions)
                     .ToListAsync();
+
+                var listToReturn = new List<InquiryDto>();
+                foreach (var inquiry in inquiries)
+                {
+                    listToReturn.Add(new InquiryDto
+                    {
+                        Id = inquiry.Id,
+                        Description = inquiry.Description,
+                        Submitted = inquiry.Submitted,
+                        CreationDate = inquiry.CreationDate.Day +"-"+inquiry.CreationDate.Month + "-"+ inquiry.CreationDate.Year,
+                    });
+                }
+
+                return listToReturn;
             }
         }
         

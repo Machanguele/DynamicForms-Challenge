@@ -24,7 +24,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <Folder Include="QuestionOptions" />
+      <Folder Include="QuestionCategories" />
     </ItemGroup>
 
 </Project>

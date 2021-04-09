@@ -1,0 +1,41 @@
+#container{
+    width: 80%;
+}
+#inquiry{
+    background-color: rgba(23, 165, 137, .5);
+    height: 50%;
+}
+
+#HeaderContainer{
+    background: url("../images/business.jpg") no-repeat center;
+    background-size: 90em;
+    width: 100%;
+    margin: auto;
+    border-radius: 1em;
+}
+
+#questionsContainer{
+    margin-top: 2%;
+    margin-left: 5%;
+    width: 60%;
+    border-radius: .5em;
+    background-color:#F8F9F9
+
+}
+
+#addMore{
+    position: absolute;
+    bottom: 25%;
+    border-radius: .1em;
+    right: 8%;
+    height: 8%;
+    width: 10%;
+}
+#submitButton{
+    position: absolute;
+    bottom: 25%;
+    width: 10%;
+    right: 20%;
+    height: 8%;
+    border-radius: .1em;
+}

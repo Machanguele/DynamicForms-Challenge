@@ -53,16 +53,22 @@ export const Inquiries = () => {
     return (
         <div id={'container'} className="row space-between justify-content-center overflow-auto">
             {
-                (inquiries.length >0 ) &&
+                (inquiries.length >0 ) ?
                 inquiries.map(inquiry =>
                     <InquiryCard key={inquiry.id}
                                  description={inquiry.description}
                                  id={inquiry.id}
                                  createdAt={inquiry.creationDate}
                     />
-                )
+                ):
+                    <InquiryCard
+                                 description={"Ainda nao criou nenhum inquerito," +
+                                 "Clique no botao abaixo para criar um"}
+
+                    />
             }
             <Button id={"roundedButton"}
+                    variant={"info"}
                 //onClick={()=>{history.push(`/inquiry/create`)}}
                     onClick={()=>{setShowCreateModal(true)}}
 
@@ -89,7 +95,8 @@ export const Inquiries = () => {
                                           rows={3}
                                           value={description}
                                           onChange={event => setDescription(event.target.value)}
-                                          placeholder="Descreva o Inquerito em poucas palavras" />
+                                          placeholder="Descreva o Inquerito em poucas palavras"
+                            />
                             <Form.Text className="text-muted">
                                 Descreva o inquerito em poucas palavras
                             </Form.Text>
@@ -97,10 +104,10 @@ export const Inquiries = () => {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="info" onClick={() => setShowCreateModal(false)}>
+                    <Button variant="warning" onClick={() => setShowCreateModal(false)}>
                         Cancel
                     </Button>
-                    <Button variant="primary" onClick={() =>
+                    <Button variant="info" onClick={() =>
                                     handleCreateInquiry(description)}
                          >
                         Create Inquiry

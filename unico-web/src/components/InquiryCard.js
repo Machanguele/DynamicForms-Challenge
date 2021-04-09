@@ -10,22 +10,31 @@ export const InquiryCard = ({description, id, createdAt}) => {
             <>
                 <Card style={{ width: '18rem', margin: '2%' }}>
                     <Card.Body>
-                        <Card.Title>inquérito</Card.Title>
+                        {id ?
+                            <Card.Title>Inquérito</Card.Title>
+                            :
+                            <Card.Title className={"success"} variant={"info"}>Painel de inquéritos </Card.Title>
+                        }
                         <Card.Text>
                             {description}
                         </Card.Text>
-                        <Card.Text>
-                            <p className={"small bold"} variant="red">created at: {createdAt}</p>
+                        {createdAt && <Card.Text>
+                            <p className={"small bold"} variant="danger">created at: {createdAt}</p>
                         </Card.Text>
-                        <div className={"row justify-content-center"}>
-                            <Button variant="primary" className={"space-between" }
-                                    onClick={()=>{history.push(`/inquiries/${id}`)}}
+                        }
+                        {id?
+                            <div className={"row justify-content-center"}>
+                            <Button variant="info" className={"space-between"}
+                                    onClick={() => {
+                                        history.push(`/inquiries/${id}`)
+                                    }}
                             >
-
                                 Ver Detalhes
-                                <MdRemoveRedEye />
+                                <MdRemoveRedEye/>
                             </Button>
                         </div>
+                            : <></>
+                        }
                     </Card.Body>
                 </Card></>
 

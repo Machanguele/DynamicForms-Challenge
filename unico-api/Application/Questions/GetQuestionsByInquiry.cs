@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Dtos;
@@ -35,6 +36,8 @@ namespace Application.Questions
                 CancellationToken cancellationToken)
             {
                 var questions =  await _context.Questions
+                    .Include(x=>x.InputType)
+                    .Include(x=>x.QuestionCategory)
                     .Include(x=>x.Inquiry)
                     .Include(x=>x.QuestionOptions)
                     .Where(x=>x.Inquiry.Id == request.InquiryId)
@@ -50,9 +53,10 @@ namespace Application.Questions
                         Inquiry = question.Inquiry,
                         InputType = question.InputType,
                         QuestionCategory = question.QuestionCategory,
+                        QuestionOptions = question.QuestionOptions.ToList(),
                         Title = question.Title,
                         IsRequired = question.IsRequired,
-                        Images = await _photosUrl.GetImagesPath(question.Id) 
+                        Images = await _photosUrl.GetImagesPath(question.Id)
                     });
                 }
 

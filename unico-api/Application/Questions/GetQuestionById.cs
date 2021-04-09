@@ -34,6 +34,8 @@ namespace Application.Questions
                 CancellationToken cancellationToken)
             {
                 var question = await _context.Questions
+                    .Include(x=>x.InputType)
+                    .Include(x=>x.QuestionCategory)
                     .Include(x=>x.Inquiry)
                     .Include(x=>x.QuestionOptions)
                     .Where(x=>x.Id == request.QuestionId)
@@ -50,6 +52,7 @@ namespace Application.Questions
                     Inquiry = question.Inquiry,
                     InputType = question.InputType,
                     QuestionCategory = question.QuestionCategory,
+                    QuestionOptions = question.QuestionOptions.ToList(),
                     Title = question.Title,
                     IsRequired = question.IsRequired,
                     Images = await _photosUrl.GetImagesPath(question.Id)

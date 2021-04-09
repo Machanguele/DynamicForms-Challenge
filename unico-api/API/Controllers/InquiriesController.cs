@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Application.Dtos;
 using Application.Inquiries;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
@@ -15,12 +16,13 @@ namespace API.Controllers
         }
         
         [HttpGet]
-        public async Task<ActionResult<List<Inquiry>>> GetInquiries()
+        public async Task<ActionResult<List<InquiryDto>>> GetInquiries()
         {
             return await Mediator.Send(new ListInquiries.ListInquiriesQuery());
         } 
+        
         [HttpGet("{inquiryId}")]
-        public async Task<ActionResult<Inquiry>> GetQuestionsById(int inquiryId)
+        public async Task<ActionResult<InquiryDto>> GetQuestionsById(int inquiryId)
         {
             return await Mediator.Send(new GetInquiryById.GetInquiryByIdQuery{InquiryId = inquiryId});
         }

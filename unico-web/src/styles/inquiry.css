@@ -1,7 +1,9 @@
 #container{
     width: 80%;
+    height: 100%;
     margin: auto;
-
+    background: url("../images/business.jpg") no-repeat center;
+    background-size: 200em;
 }
 
 #roundedButton{
@@ -10,7 +12,4 @@
     border-radius: 1em;
     right: 15%;
     height: 8%;
-
-
-
 }
