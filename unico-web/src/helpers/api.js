@@ -1,5 +1,6 @@
 export const API_URL = "http://localhost:5000/api";
 
+
 export const apiCall = (url, method, body, fileFlag) => {
 
     if (method !== "GET") {
@@ -33,3 +34,5 @@ export const apiCall = (url, method, body, fileFlag) => {
         //body: JSON.stringify(body),
     });
 };
+
+

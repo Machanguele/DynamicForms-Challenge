@@ -6,6 +6,8 @@ import '../../styles/inquiryDetail.css';
 import {Questions} from "../../components/Questions";
 import {Button, Form, Modal} from "react-bootstrap";
 import {MdAddToQueue} from "react-icons/md";
+import {FiPlus} from "react-icons/fi";
+import apiAxios from "../../helpers/apiAxios";
 
 
 export const InquiryDetails = () => {
@@ -19,12 +21,56 @@ export const InquiryDetails = () => {
     const [inputTypeId, setInputTypeId] = useState();
     const [selectedInputType, setSelectedInputType] = useState("");
     const [questionCategoryId, setQuestionCategoryId] = useState();
-    const [files, setFiles] = useState([]);
     const [questionOptions, setQuestionOptions] = useState([]);
     const [auxOption, setAuxOption] = useState("");
     const [showCreateQuestion, setShowCreateQuestion] = useState(false);
 
+    const[files, setFiles]= useState([])
+    const [previewImages, setPreviewImage] = useState([])
+
     const params = useParams();
+
+
+
+    function  handleSelectedImage(event){
+        if(!event.target.files){
+            return;
+        }
+        const selectedImages = Array.from(event.target.files)
+        setFiles(selectedImages)
+
+        const selectedImagesPreview = selectedImages.map(image=>{
+            return URL.createObjectURL(image);
+        })
+        setPreviewImage(selectedImagesPreview);
+    }
+
+    async function  handleCreateQuestion(){
+        /*const data =new  FormData();
+        data.append('title', title);
+        data.append('isRequired', String(true));
+        data.append('inputTypeId', inputTypeId);
+        data.append('questionCategoryId', questionCategoryId);
+        data.append('questionOptions', questionOptions);
+        data.append('inquiryId', selectedInquiry.id);
+        files.forEach(file=>{
+            data.append('files', file);
+        })
+
+        apiAxios.post('/questions', {
+            data
+        }).then(function (response) {
+            console.log(response);
+        })
+            .catch(function (error) {
+                console.log(error);
+            });*/
+
+
+
+    }
+
+
 
 
     useEffect(()=>{
@@ -117,6 +163,35 @@ export const InquiryDetails = () => {
                                           onChange={event => setTitle(event.target.value)}
                             />
                         </Form.Group>
+
+
+                        <Form.Group>
+                            <div className="input-block">
+                                <label htmlFor="images">Fotos</label>
+
+                                <div className="images-container">
+
+                                    {previewImages.map(image=>{
+                                        return(
+                                            <img src={image} alt={"name"} width={100}/>
+                                        )
+
+                                    })}
+                                    <label htmlFor="image[]" className="new-image">
+                                        <FiPlus size={24} color="#15b6d6" />
+                                    </label>
+
+                                    <input
+                                        multiple
+                                        type="file"
+                                        id="image[]"
+                                        onChange={handleSelectedImage}
+                                    />
+
+                                </div>
+                            </div>
+                        </Form.Group>
+
                         <Form.Group>
                             <Form.Label>Categoria</Form.Label>
                             {
@@ -194,13 +269,15 @@ export const InquiryDetails = () => {
                         }
 
 
+
+
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="warning" onClick={() => setShowCreateQuestion(false)}>
                         Cancelar
                     </Button>
-                    <Button variant="info" onClick={() => {}}
+                    <Button variant="info" onClick={()=>{}}
                         //handleCreateInquiry(description)}
                     >
                         Adicionar

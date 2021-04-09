@@ -45,6 +45,12 @@ namespace API.Controllers
             command.Files = files;
             return await Mediator.Send(command);
         }
+        
+        [HttpPost("create")]
+        public async Task<ActionResult<QuestionsDto>> CreateQuestion2(CreateQuestionWithoutPhoto.CreateQuestionWithoutPhotoCommand command)
+        {
+            return await Mediator.Send(command);
+        }
        
         
         [HttpGet("ByInquiry/{inquiryId}")]
