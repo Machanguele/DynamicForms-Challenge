@@ -13,3 +13,12 @@
     right: 15%;
     height: 8%;
 }
+
+#addMore{
+    position: absolute;
+    bottom: 25%;
+    border-radius: .5em;
+    right: 8%;
+    height: 8%;
+    width: 10%;
+}

@@ -21,7 +21,6 @@ export const Inquiries = () => {
             apiCall(`${API_URL}/inquiries`, "GET", {}, false)
                 .then( async ( response) => {
                     setInquiries(await  response.json())
-                    setShowAlertSuccess(true)
                     //console.log(await response.json())
                 })
                 .catch((err) => {
@@ -38,15 +37,19 @@ export const Inquiries = () => {
             setIsValid(true)
             apiCall(`${API_URL}/inquiries`, "POST", {description: description}, false)
                 .then( async ( response) => {
-                    setInquiries(await  response.json())
-                    //console.log(await response.json())
+                    let res = await response.json();
+                    setInquiries(res)
                     setShowAlertSuccess(true);
+                    history.push(`/inquiries/${res.id}`)
                 })
                 .catch((err) => {
-                    setShowAlertError(false);
+                    setShowAlertError(true);
                     console.log(err)
                 });
-        }else{setIsValid(false)}
+        }
+        else{
+            setShowCreateModal(false)
+            setIsValid(false)}
 
     }
 
@@ -54,27 +57,31 @@ export const Inquiries = () => {
         <div id={'container'} className="row space-between justify-content-center overflow-auto">
             {
                 (inquiries.length >0 ) ?
-                inquiries.map(inquiry =>
-                    <InquiryCard key={inquiry.id}
-                                 description={inquiry.description}
-                                 id={inquiry.id}
-                                 createdAt={inquiry.creationDate}
-                    />
-                ):
+                    inquiries.map(inquiry =>
+                        <InquiryCard key={inquiry.id}
+                                     description={inquiry.description}
+                                     id={inquiry.id}
+                                     createdAt={inquiry.creationDate}
+                        />
+                    ):
                     <InquiryCard
-                                 description={"Ainda nao criou nenhum inquerito," +
-                                 "Clique no botao abaixo para criar um"}
+                        description={"Ainda nao criou nenhum inquerito," +
+                        "Clique no botao abaixo para criar um"}
 
                     />
             }
-            <Button id={"roundedButton"}
-                    variant={"info"}
+
+            <Button
+                id={"addMore"}
+                variant={"info"}
                 //onClick={()=>{history.push(`/inquiry/create`)}}
-                    onClick={()=>{setShowCreateModal(true)}}
+                onClick={()=>{setShowCreateModal(true)}}
 
             >
-                <MdAddToPhotos size={25}/>
+                Criar Inquerito
             </Button>
+
+
 
             <Modal
                 size="lg"
@@ -108,21 +115,21 @@ export const Inquiries = () => {
                         Cancel
                     </Button>
                     <Button variant="info" onClick={() =>
-                                    handleCreateInquiry(description)}
-                         >
+                        handleCreateInquiry(description)}
+                    >
                         Create Inquiry
                     </Button>
                 </Modal.Footer>
             </Modal>
 
-            <Alert show={showAlertSuccess} variant="success">
+            <Alert show={showAlertSuccess} variant="info">
                 <Alert.Heading>Mensagem de sucesso</Alert.Heading>
                 <p>
                     Inquerito criado com sucesso! Adcione as questoes no proximo passo.
                 </p>
                 <hr />
                 <div className="d-flex justify-content-end">
-                    <Button onClick={() => setShowAlertSuccess(!showAlertSuccess)} variant="outline-success">
+                    <Button onClick={() => setShowAlertSuccess(!showAlertSuccess)} variant="outline-info">
                         Fechar
                     </Button>
                 </div>
@@ -135,20 +142,20 @@ export const Inquiries = () => {
                 </p>
                 <hr />
                 <div className="d-flex justify-content-end">
-                    <Button onClick={() => setShowAlertError(!showAlertError)} variant="outline-success">
+                    <Button onClick={() => setShowAlertError(!showAlertError)} variant="outline-warning">
                         Fechar
                     </Button>
                 </div>
             </Alert>
 
-            <Alert show={!isValid} variant="danger">
+            <Alert show={!isValid} variant="warning">
                 <Alert.Heading>Mensagem de Validacao</Alert.Heading>
                 <p>
-                    Verifique se digitou inormacoes validas.
+                    Verifique se digitou informacoes validas.
                 </p>
                 <hr />
                 <div className="d-flex justify-content-end">
-                    <Button onClick={() => setIsValid(!isValid)} variant="outline-success">
+                    <Button onClick={() => setIsValid(!isValid)} variant="outline-warning">
                         Fechar
                     </Button>
                 </div>

@@ -1,29 +1,12 @@
 ﻿[
   {
-    "Description": "Sociology"
+    "Description": "Categoria1"
   },
   {
-    "Description": "Customer Satisfaction"
-  },
-  
-  {
-    "Description": "Covid 19"
+    "Description": "Categoria2"
   },
   
   {
-    "Description": "Politics Science"
-  },
-  {
-    "Description": "Market Research"
-  },
-  {
-    "Description": "Engineering"
-  },
-  
-  {
-    "Description": "Mathematics and Nature"
-  },
-  {
-    "Description": "Others"
+    "Description": "Categoria3"
   }
-]
+  ]

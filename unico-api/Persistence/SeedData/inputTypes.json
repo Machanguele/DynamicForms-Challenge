@@ -1,34 +1,19 @@
 ﻿[
   
   {
-    "Type": "Text",
-    "Description": "Short answer"
+    "Description": "Resposta Aberta"
   },
   {
-    "Type": "TextArea",
-    "Description": "Paragraph"
+    "Description": "resposta Fechada"
   },
   {
-    "Type": "RadioButton",
-    "Description": "Unique choice radio"
+    "Description": "Lista de escolha unica
   },
 
   {
-    "Type": "Select",
-    "Description": "Unique choice Options List"
-  },
-  {
-    "Type": "CheckBox",
-    "Description": "Multiple choice"
-  },
-  
-  {
-    "Type": "DateTime",
-    "Description": "Date"
-  },
-
-  {
-    "Type": "File",
-    "Description": "File Upload"
+    "Description": "Lista de escolha multipla
   }
-]
+
+  ]
+
+  
