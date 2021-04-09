@@ -8,13 +8,18 @@ export const Questions = ({question}) => {
         <div className={"p-3"}>
             <Form className={"text-justify"}>
                 <Form.Label>{question.title}</Form.Label>
-                {
-                    (question?.inputType?.description === "Short answer")
-                    &&
-                    <FormControl type="text"/>
+                {(question?.images?.length >0) &&
+
+                    <div className={"m-3"}>
+                        <img src={question?.images[0]?.url}
+                             alt={question?.images[0]?.name}
+                             width={150}
+                        />
+                    </div>
                 }
+
                 {
-                    (question?.inputType?.description === "Paragraph")
+                    (question?.inputType?.description === "Resposta Aberta")
                     &&
                     <Form.Control as="textarea"
                                   rows={3}
@@ -22,7 +27,7 @@ export const Questions = ({question}) => {
                 }
 
                 {
-                    (question?.inputType?.description === "Unique choice radio")
+                    (question?.inputType?.description === "resposta Fechada")
                     &&
                     question?.questionOptions?.map(op=>
                         <Form.Check
@@ -34,7 +39,7 @@ export const Questions = ({question}) => {
                 }
 
                 {
-                    (question?.inputType?.description === "Unique choice Options List")
+                    (question?.inputType?.description === "Lista de escolha unica")
                     &&
                     <Form.Control
                         as="select"
@@ -51,27 +56,18 @@ export const Questions = ({question}) => {
                 }
 
                 {
-                    (question?.inputType?.description === "Multiple choice")
+                    (question?.inputType?.description === "Lista de escolha multipla")
                     &&
                     question?.questionOptions?.map(op=>
                         <Form.Check
                             //disabled
-                            type={'radio'}
+                            type={'checkbox'}
                             label={op.description}
                             id={op.id}
                         />)
                 }
 
-                {
-                    (question?.inputType?.description === "File Upload")
-                    &&
-                    <Form.File
-                        id="custom-file"
-                        label="Upload Files"
-                        custom
-                    />
 
-                }
 
 
 

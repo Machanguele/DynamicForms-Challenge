@@ -17,13 +17,25 @@ export const InquiryDetails = () => {
     const [title, setTitle] = useState("");
     const [isRequired, setIsRequired] = useState(false);
     const [inputTypeId, setInputTypeId] = useState();
+    const [selectedInputType, setSelectedInputType] = useState("");
     const [questionCategoryId, setQuestionCategoryId] = useState();
     const [files, setFiles] = useState([]);
     const [questionOptions, setQuestionOptions] = useState([]);
+    const [auxOption, setAuxOption] = useState("");
     const [showCreateQuestion, setShowCreateQuestion] = useState(false);
 
     const params = useParams();
 
+
+    useEffect(()=>{
+        let aux = inputTypes.filter(x=>x.id == inputTypeId);
+        setSelectedInputType(aux[0])
+        if(selectedInputType?.description === "resposta Fechada"){
+            setQuestionOptions(["Sim", "Nao"])
+        }else{
+            (setQuestionOptions([]))
+        }
+    }, [inputTypeId])
 
 
     useEffect(() => {
@@ -43,12 +55,7 @@ export const InquiryDetails = () => {
     }, [])
 
 
-    console.log("Inquiries");
-    console.log(selectedInquiry);
-    console.log("Inputs");
-    console.log(inputTypes);
-    console.log("Categ");
-    console.log(questionCategories);
+
     return (
         <div id={"container"} >
             <div id={"HeaderContainer"} className={"text-white"}>
@@ -77,14 +84,14 @@ export const InquiryDetails = () => {
                     variant={"secondary"}
                     onClick={()=>{setShowCreateQuestion(true)}}
             >
-                Adicionar mais questoes
+                Adicionar mais Questões
             </Button>
 
             {(selectedInquiry?.questionsDtos?.length >0) &&
             <Button id={"submitButton"}
-                     variant={"info"}
-                     onClick={() => {
-                     }}
+                    variant={"info"}
+                    onClick={() => {
+                    }}
             >
                 Enviar resposta
             </Button>}
@@ -97,23 +104,96 @@ export const InquiryDetails = () => {
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="example-modal-sizes-title-lg" className={"justify-content-center"}>
-                        Adicionar questão
+                        Adicionando e configurando Questões para o Inquérito
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Descrição</Form.Label>
-                            <Form.Control as="textarea"
-                                          rows={3}
-                                          //value={description}
-                                          //onChange={event => setDescription(event.target.value)}
-                                          //placeholder="Descreva o Inquerito em poucas palavras"
+                        <Form.Group>
+                            <Form.Label>Titulo</Form.Label>
+                            <Form.Control type="text"
+                                          placeholder="pergunta a ser respondida"
+                                          value={title}
+                                          onChange={event => setTitle(event.target.value)}
                             />
-                            <Form.Text className="text-muted">
-                                Descreva o inquerito em poucas palavras
-                            </Form.Text>
                         </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Categoria</Form.Label>
+                            {
+                                (questionCategories?.length> 0)
+                                &&
+                                <Form.Control
+                                    as="select"
+                                    className="mr-sm-2"
+                                    id="inlineFormCustomSelect"
+                                    custom
+                                    onChange={event =>setQuestionCategoryId(event.target.value)}
+                                >
+                                    {
+                                        questionCategories?.map(op=>
+                                            <option value={op.id}
+                                                /* onChange={event =>setQuestionCategoryId(event.target.value)}*/
+                                            >
+                                                {op.description}</option>
+                                        )
+                                    }
+                                </Form.Control>
+                            }
+                        </Form.Group>
+
+                        <Form.Group>
+                            <Form.Label>Especifique o tipo de cammpo de resposta</Form.Label>
+                            {
+                                (inputTypes?.length> 0)
+                                &&
+                                <Form.Control
+                                    as="select"
+                                    className="mr-sm-2"
+                                    id="inlineFormCustomSelect"
+                                    custom
+                                    onChange={event =>setInputTypeId(event.target.value)}
+                                >
+                                    {
+                                        inputTypes?.map(op=>
+                                            <option value={op.id}>
+                                                {op.description}</option>
+                                        )
+                                    }
+                                </Form.Control>
+                            }
+                        </Form.Group>
+
+                        {(selectedInputType?.description != "Resposta Aberta" )&&
+                        <Form.Group>
+                            <Form.Label>Opções da questão  </Form.Label>
+
+                            <Form.Text>
+                                {
+                                    questionOptions.map(function(option) {
+                                        return <p>{option}</p>;
+                                    })
+                                }
+                            </Form.Text>
+
+                            {selectedInputType?.description != "resposta Fechada" &&
+                                <>
+                                    <Form.Control type="text"
+                                                  placeholder="Introduza a opcao"
+                                                  value={auxOption}
+                                                  onChange={event => setAuxOption(event.target.value)}
+                                    />
+                                    <Button variant="info"
+                                            onClick={() => questionOptions.push(auxOption)}
+                                            className={"m-3"}
+                                    >
+                                        Adicionar Opcao
+                                    </Button>
+                                </>
+                               }
+                        </Form.Group>
+                        }
+
+
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
