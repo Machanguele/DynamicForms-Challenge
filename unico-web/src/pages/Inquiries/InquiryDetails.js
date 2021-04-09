@@ -48,23 +48,23 @@ export const InquiryDetails = () => {
     async function  handleCreateQuestion(){
 
         if(title != "" && inputTypeId !="" && questionCategoryId !=""){
+            let id = params.id;
 
-            apiCall(`${API_URL}/inquiries/`, "POST", {
+            apiCall(`${API_URL}/questions/create`, "POST", {
                 "title":title,
                 "isRequired": isRequired,
                 "inputTypeId": inputTypeId,
                 "questionCategoryId":  questionCategoryId,
                 "questionOptions": questionOptions,
-                "inquiryId": selectedInquiry.id
+                "inquiryId": id
 
             }, false)
                 .then( async ( response) => {
                     console.log(response)
-                    getInquiries(selectedInquiry.id)
-                   // Alert.al("New Question Added")
+                    getInquiries()
+                    setShowCreateQuestion(false)
                 })
                 .catch((err) => {console.log(err)
-                   // Alert("Fail to add Question")
                 });
         }
     }
@@ -83,13 +83,13 @@ export const InquiryDetails = () => {
 
     useEffect(() => {
         let id = params.id;
-        getInquiries(id);
+        getInquiries();
         getInputTypes();
         getQuestionCategories();
     }, [])
 
-    function getInquiries(id){
-        apiCall(`${API_URL}/inquiries/${id}`, "GET", {}, false)
+    function getInquiries(){
+        apiCall(`${API_URL}/inquiries/${params.id}`, "GET", {}, false)
             .then( async ( response) => {setSelectedInquiry(await  response.json())})
             .catch((err) => {console.log(err)});
     }
@@ -283,8 +283,7 @@ export const InquiryDetails = () => {
                     <Button variant="warning" onClick={() => setShowCreateQuestion(false)}>
                         Cancelar
                     </Button>
-                    <Button variant="info" onClick={handleCreateQuestion()}
-                        //handleCreateInquiry(description)}
+                    <Button variant="info" onClick={()=>handleCreateQuestion()}
                     >
                         Adicionar
                     </Button>

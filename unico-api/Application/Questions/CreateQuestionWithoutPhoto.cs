@@ -43,7 +43,6 @@ namespace Application.Questions
                 RuleFor(x => x.Title).NotEmpty();
                 RuleFor(x => x.InputTypeId).NotEmpty();
                 RuleFor(x => x.QuestionCategoryId).NotEmpty();
-                RuleFor(x => x.QuestionCategoryId).NotEmpty();
                 RuleFor(x => x.InquiryId).NotEmpty();
             }
         }
