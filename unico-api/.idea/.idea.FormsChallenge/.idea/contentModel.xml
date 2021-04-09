@@ -15,7 +15,9 @@
         </e>
         <e p="Controllers" t="Include">
           <e p="BaseController.cs" t="Include" />
+          <e p="InputTypesController.cs" t="Include" />
           <e p="InquiriesController.cs" t="Include" />
+          <e p="QuestionCategoriesController.cs" t="Include" />
           <e p="QuestionsController.cs" t="Include" />
           <e p="tsconfig.json" t="Include" />
         </e>
@@ -42,7 +44,13 @@
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="Uploads" t="Include">
+          <e p="3HBwE5avR8NdqFgo7CK2Rst6kl4.png" t="Include" />
+          <e p="Ax8QxYgT073Yd4B4TdOPAinS1Zo.png" t="Include" />
+          <e p="F1aC6AdMpwUNwAvwqQTthMhWvXo.png" t="Include" />
+          <e p="ffAo0IdWfjE3nyaCOKVT6lumvyg.png" t="Include" />
           <e p="hb3bFu3irCucWLV95pw8Fwr_bFA.png" t="Include" />
+          <e p="JWeobGD74ceR7cscSw1ZToye1No.png" t="Include" />
+          <e p="lg_9WVcC-SEM9WMAb8XJtqc06vw.png" t="Include" />
           <e p="T-w6YRFnRWeSHo6zdwshwqqDTyw.jpg" t="Include" />
         </e>
       </e>
@@ -52,6 +60,7 @@
         <e p="Dtos" t="Include">
           <e p="AnswerOptionsDto.cs" t="Include" />
           <e p="AuxQuestionDto.cs" t="Include" />
+          <e p="InquiryDto.cs" t="Include" />
           <e p="OptionDto.cs" t="Include" />
           <e p="QuestionsDto.cs" t="Include" />
         </e>
@@ -63,6 +72,9 @@
         </e>
         <e p="Helpers" t="Include">
           <e p="GetImagesPathHelper.cs" t="Include" />
+        </e>
+        <e p="InputTypes" t="Include">
+          <e p="ListInputTypes.cs" t="Include" />
         </e>
         <e p="Inquiries" t="Include">
           <e p="CreateInquiry.cs" t="Include" />
@@ -84,9 +96,13 @@
             </e>
           </e>
         </e>
-        <e p="QuestionOptions" t="Include" />
+        <e p="QuestionCategories" t="Include" />
+        <e p="QuestionOptions" t="Include">
+          <e p="ListQuestionCategories.cs" t="Include" />
+        </e>
         <e p="Questions" t="Include">
           <e p="CreateQuestion.cs" t="Include" />
+          <e p="CreateQuestionWithoutPhoto.cs" t="Include" />
           <e p="GetQuestionById.cs" t="Include" />
           <e p="GetQuestionsByInquiry.cs" t="Include" />
           <e p="UpdateQuestion.cs" t="Include" />
@@ -149,7 +165,7 @@
         </e>
         <e p="Persistence.csproj" t="IncludeRecursive" />
         <e p="SeedData" t="Include">
-          <e p="InputTypes.json" t="Include" />
+          <e p="inputTypes.json" t="Include" />
           <e p="questionCategories.json" t="Include" />
         </e>
       </e>

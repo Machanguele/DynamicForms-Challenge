@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 import {API_URL, apiCall} from "../../helpers/api";
 import '../../styles/inquiryDetail.css';
 import {Questions} from "../../components/Questions";
-import {Button, Form, Modal} from "react-bootstrap";
+import {Button, Form, Modal, Alert} from "react-bootstrap";
 import {MdAddToQueue} from "react-icons/md";
 import {FiPlus} from "react-icons/fi";
 import apiAxios from "../../helpers/apiAxios";
@@ -46,31 +46,28 @@ export const InquiryDetails = () => {
     }
 
     async function  handleCreateQuestion(){
-        /*const data =new  FormData();
-        data.append('title', title);
-        data.append('isRequired', String(true));
-        data.append('inputTypeId', inputTypeId);
-        data.append('questionCategoryId', questionCategoryId);
-        data.append('questionOptions', questionOptions);
-        data.append('inquiryId', selectedInquiry.id);
-        files.forEach(file=>{
-            data.append('files', file);
-        })
 
-        apiAxios.post('/questions', {
-            data
-        }).then(function (response) {
-            console.log(response);
-        })
-            .catch(function (error) {
-                console.log(error);
-            });*/
+        if(title != "" && inputTypeId !="" && questionCategoryId !=""){
 
+            apiCall(`${API_URL}/inquiries/`, "POST", {
+                "title":title,
+                "isRequired": isRequired,
+                "inputTypeId": inputTypeId,
+                "questionCategoryId":  questionCategoryId,
+                "questionOptions": questionOptions,
+                "inquiryId": selectedInquiry.id
 
-
+            }, false)
+                .then( async ( response) => {
+                    console.log(response)
+                    getInquiries(selectedInquiry.id)
+                   // Alert.al("New Question Added")
+                })
+                .catch((err) => {console.log(err)
+                   // Alert("Fail to add Question")
+                });
+        }
     }
-
-
 
 
     useEffect(()=>{
@@ -86,19 +83,28 @@ export const InquiryDetails = () => {
 
     useEffect(() => {
         let id = params.id;
+        getInquiries(id);
+        getInputTypes();
+        getQuestionCategories();
+    }, [])
+
+    function getInquiries(id){
         apiCall(`${API_URL}/inquiries/${id}`, "GET", {}, false)
             .then( async ( response) => {setSelectedInquiry(await  response.json())})
             .catch((err) => {console.log(err)});
+    }
 
+    function getInputTypes(){
         apiCall(`${API_URL}/inputTypes/`, "GET", {}, false)
             .then( async ( response) => {setInputTypes(await  response.json())})
             .catch((err) => {console.log(err)});
+    }
 
+    function getQuestionCategories(){
         apiCall(`${API_URL}/questionCategories`, "GET", {}, false)
             .then( async ( response) => {setQuestionCategories(await  response.json())})
             .catch((err) => {console.log(err)});
-
-    }, [])
+    }
 
 
 
@@ -277,7 +283,7 @@ export const InquiryDetails = () => {
                     <Button variant="warning" onClick={() => setShowCreateQuestion(false)}>
                         Cancelar
                     </Button>
-                    <Button variant="info" onClick={()=>{}}
+                    <Button variant="info" onClick={handleCreateQuestion()}
                         //handleCreateInquiry(description)}
                     >
                         Adicionar
