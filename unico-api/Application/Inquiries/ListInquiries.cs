@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Dtos;
@@ -30,6 +31,7 @@ namespace Application.Inquiries
             {
                 var inquiries =  await _context.Inquiries
                     .Include(x=>x.Questions)
+                    .OrderBy(x=>x.CreationDate)
                     .ToListAsync();
 
                 var listToReturn = new List<InquiryDto>();

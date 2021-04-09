@@ -34,6 +34,7 @@ namespace Application.Inquiries
             {
                 var inquiry = await _context.Inquiries
                     .Include(x=>x.Questions)
+                    .OrderBy(x=>x.CreationDate)
                     .FirstOrDefaultAsync(x=>x.Id == request.InquiryId);
                 
                 var questions = await _context.Questions
