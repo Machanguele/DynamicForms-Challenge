@@ -62,6 +62,18 @@ export const InquiryDetails = () => {
         setPreviewImage(selectedImagesPreview);
     }
 
+    function handleSubmitInquiry(){
+        let id = params.id;
+
+        apiCall(`${API_URL}/inquiries/submit/${id}`, "POST", {"inquiryId": id}, false)
+            .then( async ( response) => {
+                console.log( await response.json)
+                setIsLoading(!isLoading)
+            })
+            .catch((err) => {console.log(err)
+            });
+    }
+
     async function  handleCreateQuestion(){
 
         if(title != "" && inputTypeId !="" && questionCategoryId !=""){
@@ -77,7 +89,7 @@ export const InquiryDetails = () => {
 
             }, false)
                 .then( async ( response) => {
-                   console.log( await response.json)
+                    console.log( await response.json)
                     setIsLoading(!isLoading)
                     //getInquiries()
                     setShowCreateQuestion(false)
@@ -97,7 +109,7 @@ export const InquiryDetails = () => {
                 resource ==="questionCategories"?
                     setQuestionCategories(await  response.json())
                     : resource === "inquiry" ?
-                        setSelectedInquiry(await  response.json())
+                    setSelectedInquiry(await  response.json())
                     : setInputTypes(await  response.json())
 
             })
@@ -134,6 +146,16 @@ export const InquiryDetails = () => {
                         }
                     </div>
 
+                    {(selectedInquiry?.questionsDtos?.length >0) && (!selectedInquiry?.submitted) &&
+                    <Button id={"submitButton"}
+                            variant={"success"}
+                            onClick={handleSubmitInquiry()}
+                    >
+                        Submeter Questionario
+                    </Button>}
+
+
+                    {(!selectedInquiry?.submitted) &&
                     <Button id={"addMore"}
                             variant={"info"}
                             onClick={() => {
@@ -142,15 +164,8 @@ export const InquiryDetails = () => {
                     >
                         Adicionar mais Questões
                     </Button>
+                    }
 
-                    {/*{(selectedInquiry?.questionsDtos?.length >0) &&
-            <Button id={"submitButton"}
-                    variant={"info"}
-                    onClick={() => {
-                    }}
-            >
-                Enviar resposta
-            </Button>}*/}
 
                     <Modal
                         size="lg"
@@ -195,7 +210,7 @@ export const InquiryDetails = () => {
                                                 multiple
                                                 type="file"
                                                 id="image[]"
-                                                onChange={handleSelectedImage}
+                                                onChange={()=>handleSelectedImage()}
                                             />
 
                                         </div>
@@ -295,6 +310,6 @@ export const InquiryDetails = () => {
                 </div>:
                 <Spinner animation="border" variant="info" />
             }
-            </>
+        </>
     );
 };
