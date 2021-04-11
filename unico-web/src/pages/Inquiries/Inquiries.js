@@ -39,10 +39,12 @@ export const Inquiries = () => {
                 .then( async ( response) => {
                     let res = await response.json();
                     setInquiries(res)
+                    setShowCreateModal(false)
                     setShowAlertSuccess(true);
                     history.push(`/inquiries/${res.id}`)
                 })
                 .catch((err) => {
+                    setShowCreateModal(false)
                     setShowAlertError(true);
                     console.log(err)
                 });
