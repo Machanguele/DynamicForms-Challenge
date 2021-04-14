@@ -23,6 +23,7 @@ export const Questions = ({question}) => {
                     &&
                     <Form.Control as="textarea"
                                   rows={3}
+                                  maxlength={256}
                     />
                 }
 

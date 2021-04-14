@@ -17,7 +17,7 @@ export const InquiryDetails = () => {
     const [questions, setQuestions] = useState([]);
 
     const [title, setTitle] = useState("");
-    const [isRequired, setIsRequired] = useState(false);
+    const [isRequired, setIsRequired] = useState(true);
     const [inputTypeId, setInputTypeId] = useState();
     const [selectedInputType, setSelectedInputType] = useState("");
     const [questionCategoryId, setQuestionCategoryId] = useState();
@@ -103,7 +103,9 @@ export const InquiryDetails = () => {
                     console.log( await response.json)
                     setIsLoading(!isLoading)
                     //getInquiries()
+                    setQuestionOptions([])
                     setShowCreateQuestion(false)
+
                 })
                 .catch((err) => {console.log(err)
                 });
@@ -188,8 +190,25 @@ export const InquiryDetails = () => {
                                     <Form.Control type="text"
                                                   placeholder="pergunta a ser respondida"
                                                   value={title}
+                                                  data-toggle="toggle"
                                                   onChange={event => setTitle(event.target.value)}
                                     />
+                                </Form.Group>
+
+                                <Form.Group>
+                                    <div className="form-group form-check">
+                                        <input type="checkbox"
+                                               className="form-check-input"
+                                               id="exampleCheck1"
+                                               value={isRequired}
+                                               onChange={()=>setIsRequired(!isRequired)}
+                                        />
+                                            <label className="form-check-label"
+                                                   htmlFor="exampleCheck1"
+                                            >
+                                                Resposta Obrigatória *
+                                            </label>
+                                    </div>
                                 </Form.Group>
 
 
