@@ -6,6 +6,7 @@ import '../../styles/inquiryDetail.css';
 import {Questions} from "../../components/Questions";
 import {Button, Form, Modal, Alert, Spinner} from "react-bootstrap";
 import {FiPlus} from "react-icons/fi";
+import createFormData from "../../helpers/CreateFormData";
 
 
 
@@ -33,11 +34,11 @@ export const InquiryDetails = () => {
     useEffect(()=>{
         let aux = inputTypes.filter(x=>x.id == inputTypeId);
         setSelectedInputType(aux[0])
-        if(selectedInputType?.description === "resposta Fechada"){
+        /*if(selectedInputType?.description === "resposta Fechada"){
             setQuestionOptions(["Sim", "Nao"])
         }else{
-            (setQuestionOptions([]))
-        }
+            setQuestionOptions([])
+        }*/
     }, [inputTypeId])
 
 
@@ -78,6 +79,16 @@ export const InquiryDetails = () => {
 
         if(title != "" && inputTypeId !="" && questionCategoryId !=""){
             let id = params.id;
+            let data = {
+                "title":title,
+                "isRequired": isRequired,
+                "inputTypeId": inputTypeId,
+                "questionCategoryId":  questionCategoryId,
+                "questionOptions": questionOptions,
+                "inquiryId": id
+            }
+
+            const formData = createFormData(files, data)
 
             apiCall(`${API_URL}/questions/create`, "POST", {
                 "title":title,
@@ -99,10 +110,6 @@ export const InquiryDetails = () => {
         }
     }
 
-
-
-
-
     function dispatchHelper(resource, url, method, body){
         apiCall(`${API_URL}/${url}`, method, body, false)
             .then( async ( response) => {
@@ -111,14 +118,10 @@ export const InquiryDetails = () => {
                     : resource === "inquiry" ?
                     setSelectedInquiry(await  response.json())
                     : setInputTypes(await  response.json())
-
             })
             .catch((err) => {
                 console.log(err)});
-
     }
-
-
 
     return (
         <>
@@ -195,7 +198,6 @@ export const InquiryDetails = () => {
                                         <label htmlFor="images">Fotos</label>
 
                                         <div className="images-container">
-
                                             {previewImages.map(image => {
                                                 return (
                                                     <img src={image} alt={"name"} width={100}/>
@@ -212,7 +214,6 @@ export const InquiryDetails = () => {
                                                 id="image[]"
                                                 onChange={()=>handleSelectedImage()}
                                             />
-
                                         </div>
                                     </div>
                                 </Form.Group>
@@ -233,7 +234,7 @@ export const InquiryDetails = () => {
                                             {
                                                 questionCategories?.map(op =>
                                                     <option value={op.id}
-                                                        /* onChange={event =>setQuestionCategoryId(event.target.value)}*/
+                                                        //onChange={event =>setQuestionCategoryId(event.target.value)}
                                                     >
                                                         {op.description}</option>
                                                 )
@@ -264,34 +265,39 @@ export const InquiryDetails = () => {
                                     }
                                 </Form.Group>
 
-                                {(selectedInputType?.description != "Resposta Aberta") &&
-                                <Form.Group>
-                                    <Form.Label>Opções da questão </Form.Label>
+                                {
+                                    (selectedInputType?.description != "Resposta Aberta") &&
 
-                                    <Form.Text>
-                                        {
-                                            questionOptions.map(function (option) {
-                                                return <p>{option}</p>;
-                                            })
+                                    <Form.Group>
+                                        <Form.Label>Opções da questão </Form.Label>
+
+                                        {questionOptions.length >0
+                                        &&
+                                        <Form.Text>
+                                            {
+                                                questionOptions.map(function (option) {
+                                                    return <p>{option}</p>;
+                                                })
+                                            }
+                                        </Form.Text>
                                         }
-                                    </Form.Text>
 
-                                    {selectedInputType?.description != "resposta Fechada" &&
-                                    <>
-                                        <Form.Control type="text"
-                                                      placeholder="Introduza a opcao"
-                                                      value={auxOption}
-                                                      onChange={event => setAuxOption(event.target.value)}
-                                        />
-                                        <Button variant="info"
-                                                onClick={() => questionOptions.push(auxOption)}
-                                                className={"m-3"}
-                                        >
-                                            Adicionar Opcao
-                                        </Button>
-                                    </>
-                                    }
-                                </Form.Group>
+                                        {/*{selectedInputType?.description != "Resposta Aberta" &&
+                                        <>*/}
+                                            <Form.Control type="text"
+                                                          placeholder="Introduza a opcao"
+                                                          value={auxOption}
+                                                          onChange={event => setAuxOption(event.target.value)}
+                                            />
+                                            <Button variant="info"
+                                                    onClick={() => questionOptions.push(auxOption)}
+                                                    className={"m-3"}
+                                            >
+                                                Adicionar Opcao
+                                            </Button>
+                                        {/*</>
+                                        }*/}
+                                    </Form.Group>
                                 }
 
 
